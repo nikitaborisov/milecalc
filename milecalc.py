@@ -15,7 +15,7 @@ def pathcalc(segs):
     for start, end in zip(segs, segs[1:]):
         if start == end:
             return -1 # hack to avoid duplicate airports
-        dist = int(vincenty(airports[start.upper()],
+        dist = round(vincenty(airports[start.upper()],
                             airports[end.upper()]).miles)
         dist = max(dist, 500)
         total += dist
